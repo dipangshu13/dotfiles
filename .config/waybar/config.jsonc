@@ -1,55 +1,61 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
-    "spacing": 4,
+    "height": 38,
+    "spacing": 0,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery", "tray"],
+    "modules-left": ["custom/launcher", "sway/workspaces", "sway/window"],
+    "modules-center": ["clock", "mpris"],
+    "modules-right": ["pulseaudio", "network"],
+
+    "custom/launcher": {
+        "format": " ", 
+        "on-click": "pkill wofi || wofi --show drun",
+        "tooltip": true,
+	"tooltip-format": "Launch Apps"
+    },
 
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{name}",
-        "on-click": "activate"
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", 
+            "6": "6", "7": "7", "8": "8", "9": "9", "10": "10"
+        }
+    },
+
+    "sway/window": {
+        "max-length": 40,
+        "format": "{title}"
     },
 
     "clock": {
-        "format": " {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%Y-%m-%d}"
+        "format": "{:%d %b %Y  |  %H:%M}",
+        "tooltip-format": "<big>{calendar}</big>",
+        "on-click": "gnome-calendar"
+    },
+
+    "mpris": {
+        "format": "♪ {title} - {artist}",
+        "format-paused": "⏸ {title}",
+        "max-length": 30,
+        "tooltip": false
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": " Muted",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
+        "format": "Vol: {volume}%",
+        "format-muted": "Muted",
+        "tooltip-format": "{desc}",
         "on-click": "pavucontrol"
     },
 
     "network": {
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": "  Connected",
-        "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "on-click": "nm-connection-editor"
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""]
-    },
-
-    "tray": {
-        "spacing": 10
+        "format-wifi": "WiFi: {essid}",
+        "format-ethernet": "LAN",
+        "format-disconnected": "Disconnected",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "Ethernet Connected",
+        "tooltip-format-disconnected": "No Internet Connection"
     }
 }

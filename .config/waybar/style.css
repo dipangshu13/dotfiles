@@ -1,63 +1,97 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-family: "Noto Sans Mono", monospace;
     font-size: 14px;
+    font-weight: 500;
     min-height: 0;
 }
 
+/* Outer window transparent */
 window#waybar {
-    background-color: rgba(0, 15, 30, 0.8); /* Deep blue, slightly transparent */
-    color: #ffffff;
-    border-bottom: 2px solid #0055aa; /* Blue accent line */
+    background: transparent;
 }
 
+/* Floating box with margin from screen edges */
+window#waybar > box {
+    margin: 6px 10px;
+    background: rgba(0, 15, 30, 0.7); 
+    border-radius: 10px;
+    border: 1px solid rgba(0, 85, 170, 0.4);
+    color: #ffffff;
+    padding: 0 5px;
+}
+
+/* Uniform gaps between all modules */
+#workspaces,
+#window,
+#clock,
+#mpris,
+#pulseaudio,
+#network {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    background: rgba(0, 30, 60, 0.5);
+}
+
+/* Launcher */
+#custom-launcher {
+    padding: 0 5px;
+    margin: 4px 2px;
+    background-image: url("/home/dipangshu/.config/waybar/fedora.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 30px;
+    margin-right: 5px;
+}
+
+/* Workspaces */
 #workspaces button {
-    padding: 0 8px;
-    background-color: transparent;
-    color: #88aaff;
-    border-bottom: 2px solid transparent;
+    padding: 0 6px;
+    background: transparent;
+    color: #888888;
 }
 
 #workspaces button.focused {
     color: #ffffff;
-    background-color: rgba(0, 85, 170, 0.5);
-    border-bottom: 2px solid #ffffff;
+    background: #0055aa;
 }
 
 #workspaces button:hover {
-    background-color: rgba(0, 85, 170, 0.3);
+    background: rgba(0, 85, 170, 0.5);
 }
 
-#clock,
-#battery,
-#network,
-#pulseaudio,
-#tray {
-    padding: 0 12px;
-    margin: 0 2px;
-    color: #ffffff;
+/* Window Title */
+#window {
+    color: #c0caf5;
+    font-style: italic;
 }
 
-#battery.charging {
-    color: #00ff88;
+/* Clock & Music Player */
+#clock, #mpris {
+    color: #c0caf5;
 }
 
-#battery.warning:not(.charging) {
-    color: #ffaa00;
+#mpris {
+    color: #bb9af7; 
 }
 
-#battery.critical:not(.charging) {
-    color: #ff3333;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+/* Volume */
+#pulseaudio {
+    color: #9ece6a; 
+}
+#pulseaudio.muted {
+    color: #ff3333; 
 }
 
-@keyframes blink {
-    to {
-        color: #ffffff;
-    }
+/* Network */
+#network {
+    color: #9ece6a; 
+}
+
+#network.disconnected {
+    color: #ff3333; 
+    background: rgba(255, 51, 51, 0.1); 
 }

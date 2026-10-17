@@ -9,7 +9,7 @@ set $down j
 set $up k
 set $right l
 set $term kitty
-set $menu wmenu-run
+set $menu pkill wofi || wofi --show drun
 
 ### Output Configuration
 output HDMI-A-1 resolution 1920x1080@99.933Hz position 0,0
@@ -18,10 +18,11 @@ output * bg /home/dipangshu/Downloads/wallpaper.png fill
 ### Startup Apps
 exec gnome-keyring-daemon --start --components=secrets
 exec waybar &
+exec mako
 
 ### Window Appearance & Layout
-gaps inner 10
-gaps outer 5
+gaps inner 5
+gaps outer 2
 default_border pixel 2
 default_floating_border pixel 2
 
