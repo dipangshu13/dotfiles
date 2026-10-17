@@ -21,8 +21,8 @@ exec waybar &
 exec mako
 
 ### Window Appearance & Layout
-gaps inner 5
-gaps outer 2
+gaps inner 6
+gaps outer 6
 default_border pixel 2
 default_floating_border pixel 2
 

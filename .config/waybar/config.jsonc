@@ -1,12 +1,12 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "height": 45,
     "spacing": 0,
 
     "modules-left": ["custom/launcher", "sway/workspaces", "sway/window"],
     "modules-center": ["clock", "mpris"],
-    "modules-right": ["pulseaudio", "network"],
+    "modules-right": ["pulseaudio", "network", "custom/power"],
 
     "custom/launcher": {
         "format": " ", 
@@ -57,5 +57,12 @@
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "Ethernet Connected",
         "tooltip-format-disconnected": "No Internet Connection"
+    },
+
+        "custom/power": {
+        "format": "⏻",
+        "tooltip": true,
+	"tooltip-format": "Shutdown",
+        "on-click": "~/.config/waybar/power.sh"
     }
 }
