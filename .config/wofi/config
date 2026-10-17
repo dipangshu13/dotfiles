@@ -1,0 +1,15 @@
+# Show applications (drun mode)
+show=drun
+
+# Size and Position
+width=600
+height=400
+location=center
+
+# Prompt text
+prompt=Search apps...
+
+# Behavior
+insensitive=true
+allow_images=true
+hide_scroll=true
