@@ -1,0 +1,63 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 15, 30, 0.8); /* Deep blue, slightly transparent */
+    color: #ffffff;
+    border-bottom: 2px solid #0055aa; /* Blue accent line */
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #88aaff;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+    background-color: rgba(0, 85, 170, 0.5);
+    border-bottom: 2px solid #ffffff;
+}
+
+#workspaces button:hover {
+    background-color: rgba(0, 85, 170, 0.3);
+}
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 12px;
+    margin: 0 2px;
+    color: #ffffff;
+}
+
+#battery.charging {
+    color: #00ff88;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffaa00;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff3333;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #ffffff;
+    }
+}
